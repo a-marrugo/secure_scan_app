@@ -6,7 +6,7 @@ Prueba técnica SEEK. Desarrollado con arquitectura limpia.
 
 ### APK
 
-Descarga [APK](https://drive.google.com/file/d/1fBnrXC5d_TFft7nJBkRTAj1pR1F_gBwa/view?usp=sharing).
+Descarga [APK](https://drive.google.com/file/d/142cG5nWbxVVxZDP_AUy9g00iA4k9J0NQ/view?usp=drive_link).
 
 ### Requisitos Previos
 
