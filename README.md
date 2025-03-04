@@ -97,5 +97,26 @@ Para compilar la aplicación en modo release:
   ```
 - \*\*Pruebas unitarias coverage
 
-- ![image](https://github.com/user-attachments/assets/de5249e2-086a-4e19-8519-650ff6286fe7)
-- <img width="245" alt="Screenshot 2025-03-04 at 12 50 30 PM" src="https://github.com/user-attachments/assets/e90fa8d0-aeae-42fb-bdcf-88cd94d2a0b3" />
+- <img src="https://github.com/user-attachments/assets/de5249e2-086a-4e19-8519-650ff6286fe7" width="360" height="120" />
+- <img src="https://github.com/user-attachments/assets/e90fa8d0-aeae-42fb-bdcf-88cd94d2a0b3" width="360" height="120" />
+
+
+
+
+### Pruebame
+<img src="https://github.com/user-attachments/assets/5cde3320-5ea0-45eb-ae04-e122a870ed0b" width="120" height="120" />
+<br>
+<br>
+<img src="https://github.com/user-attachments/assets/dd037ae4-006a-473c-8da5-4d8597fa5c53" width="120" height="120" />
+<br>
+<br>
+<img src="https://github.com/user-attachments/assets/a944c84f-0dff-4360-869f-62f4dd7d4384" width="120" height="120" />
+
+
+
+### Genera tus propios QRs
+[QR generator](https://es.qr-code-generator.com/solutions/text-qr-code/)
+
+
+
+
