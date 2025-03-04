@@ -2,6 +2,7 @@ package com.example.secure_scan_app.presentation.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -10,11 +11,13 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.activity.ComponentActivity
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.camera.core.*
 import androidx.camera.core.resolutionselector.ResolutionSelector
 import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.secure_scan_app.databinding.ActivityQrscannerBinding
@@ -34,8 +37,19 @@ import java.util.concurrent.Executors
  */
 @AndroidEntryPoint
 class QRScannerActivity : ComponentActivity() {
+    private val requestCameraPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                setupCamera()
+                observeViewModel()
+                startCamera()
+            } else {
+                finish()
+            }
+        }
+
     private lateinit var binding: ActivityQrscannerBinding
-    private lateinit var cameraExecutor: ExecutorService
+    private  var cameraExecutor: ExecutorService? = null
     private lateinit var barcodeScanner: BarcodeScanner
     private var cameraProvider: ProcessCameraProvider? = null
 
@@ -48,17 +62,41 @@ class QRScannerActivity : ComponentActivity() {
         setContentView(binding.root)
 
         setupFullScreenMode()
-        setupCamera()
-        observeViewModel()
+
+        if (checkCameraPermission()) {
+            setupCamera()
+            observeViewModel()
+            startCamera()
+        } else {
+            requestCameraPermission()
+        }
 
         binding.btnClose.setOnClickListener { finish() }
-        startCamera()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         cameraProvider?.unbindAll()
-        cameraExecutor.shutdown()
+        cameraExecutor?.shutdown()
+    }
+
+    /**
+     * Checks if the camera permission has been granted.
+     *
+     * @return `true` if the permission is granted, `false` otherwise.
+     */
+    private fun checkCameraPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this, android.Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    /**
+     * Requests the camera permission from the user.
+     * If the permission is denied, the feature relying on the camera will not work.
+     */
+    private fun requestCameraPermission() {
+        requestCameraPermissionLauncher.launch(android.Manifest.permission.CAMERA)
     }
 
     /**
@@ -95,7 +133,7 @@ class QRScannerActivity : ComponentActivity() {
         lifecycleScope.launch {
             viewModel.insertResult.collect { result ->
                 result?.let { (isSaved, qrText) ->
-                    if (isSaved) Log.d("QR_STORAGE", "Guardado: $qrText")
+                    if (isSaved) Log.d("QR_STORAGE", "Saved: $qrText")
 
                     val intent = Intent().putExtra(ActivityResultKeys.QR_RESULT, qrText)
                     setResult(Activity.RESULT_OK, intent)
@@ -131,7 +169,7 @@ class QRScannerActivity : ComponentActivity() {
                     .build()
                     .also {
                         it.setAnalyzer(
-                            cameraExecutor,
+                            cameraExecutor!!,
                             QRAnalyzer(barcodeScanner, viewModel::insertQR)
                         )
                     }
