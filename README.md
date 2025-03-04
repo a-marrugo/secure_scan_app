@@ -6,7 +6,7 @@ Prueba técnica SEEK. Desarrollado con arquitectura limpia.
 
 ### APK
 
-Descarga [APK](https://fastupload.io/be5e201efa58a240).
+Descarga [APK](https://upload.app/download/secure-scan-app/com.example.secure_scan_app/62b3d83a42a9217c550711792223180c79698066de6ec39198679e0e5e214e89).
 
 ### Requisitos Previos
 
