@@ -12,7 +12,7 @@ Este proyecto en Flutter implementa un sistema de lectura de códigos QR con alm
 
 Se ha aplicado **arquitectura limpia**, dividiendo tanto el módulo nativo como los componentes de Flutter en capas bien definidas, donde cada capa tiene una responsabilidad específica. Esto facilita:
 
-- **Pruebas unitarias y de integración**
+- **Pruebas unitarias**
 - **Escalabilidad**
 - **Mantenimiento del código**
 
