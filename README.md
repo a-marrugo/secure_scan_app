@@ -1,12 +1,36 @@
-# secure_scan_app
+# SEEK Technical Test - Flutter QR Scanner
 
-Prueba técnica SEEK. Desarrollado con arquitectura limpia.
-
-## Getting Started
-
-### APK
+## APK
 
 Descarga [APK](https://upload.app/download/secure-scan-app/com.example.secure_scan_app/62b3d83a42a9217c550711792223180c79698066de6ec39198679e0e5e214e89).
+
+## Acerca del proyecto
+
+Este proyecto en Flutter implementa un sistema de lectura de códigos QR con almacenamiento de datos en una base de datos nativa utilizando **Room Database**. La comunicación entre los módulos nativos y Flutter se realiza de manera reactiva mediante **Pigeon**.
+
+## Arquitectura
+
+Se ha aplicado **arquitectura limpia**, dividiendo tanto el módulo nativo como los componentes de Flutter en capas bien definidas, donde cada capa tiene una responsabilidad específica. Esto facilita:
+
+- **Pruebas unitarias y de integración**
+- **Escalabilidad**
+- **Mantenimiento del código**
+
+## Características
+
+- 📷 **Escaneo de códigos QR**
+- 💾 **Almacenamiento local de datos** mediante **Room Database**
+- 🔄 **Comunicación entre Flutter y módulos nativos** usando **Pigeon**
+- ⚡ **Flujo de datos reactivo** para actualizar la interfaz en tiempo real
+
+## Tecnologías utilizadas
+
+- **Flutter (Dart)**
+- **Pigeon** (Interfaz de comunicación entre Flutter y nativo)
+- **Kotlin / Swift** (Implementación nativa)
+- **Room Database** (Gestión de almacenamiento en Android)
+
+## Getting Started
 
 ### Requisitos Previos
 
@@ -14,8 +38,8 @@ Antes de ejecutar la aplicación, asegúrate de tener instalado lo siguiente:
 
 - [Flutter](https://flutter.dev/docs/get-started/install) (Versión recomendada: 3.22.3)
 - [Dart](https://dart.dev/get-dart) (Tools • Dart 3.4.4 • DevTools 2.34.3)
-- [Android Studio](https://developer.android.com/studio) o [Xcode](https://developer.apple.com/xcode/) (para desarrollo nativo en Android e iOS)
 - Dispositivo físico o emulador configurado
+- `gradle.properties` Tener en el virtual machine las versiones openjdk 17 y 11
 
 ### Instalación
 
@@ -50,23 +74,6 @@ Antes de ejecutar la aplicación, asegúrate de tener instalado lo siguiente:
    ```
 
 4. Ejecuta la app:
-
-   ```sh
-   flutter run
-   ```
-
-### Configuración para iOS
-
-1. Instala las dependencias de CocoaPods:
-
-   ```sh
-   cd ios
-   pod install
-   cd ..
-   ```
-
-2. Abre `ios/Runner.xcworkspace` en Xcode y verifica la configuración del equipo (Team ID).
-3. Ejecuta la aplicación en un simulador o dispositivo físico:
 
    ```sh
    flutter run
