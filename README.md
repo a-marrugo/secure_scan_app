@@ -1,8 +1,12 @@
 # secure_scan_app
 
-Prueba técnica SEEK
+Prueba técnica SEEK. Desarrollado con arquitectura limpia.
 
 ## Getting Started
+
+### APK
+
+Descarga [APK](https://drive.google.com/file/d/1fBnrXC5d_TFft7nJBkRTAj1pR1F_gBwa/view?usp=sharing).
 
 ### Requisitos Previos
 
@@ -84,8 +88,7 @@ Para compilar la aplicación en modo release:
   flutter clean
   flutter pub get
   ```
-- **Errores en Android:** Verifica que el SDK y NDK de Android estén configurados correctamente en `local.properties`.
+- \*\*Pruebas unitarias coverage
 
-### Licencia
-
-Este proyecto está bajo la licencia [MIT](LICENSE).
+- ![image](https://github.com/user-attachments/assets/de5249e2-086a-4e19-8519-650ff6286fe7)
+- <img width="245" alt="Screenshot 2025-03-04 at 12 50 30 PM" src="https://github.com/user-attachments/assets/e90fa8d0-aeae-42fb-bdcf-88cd94d2a0b3" />
